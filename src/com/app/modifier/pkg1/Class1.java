@@ -1,4 +1,4 @@
-package com.app.pkg1;
+package com.app.modifier.pkg1;
 
 public class Class1 {
 

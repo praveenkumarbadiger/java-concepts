@@ -1,6 +1,6 @@
-package com.app.pkg2;
+package com.app.modifier.pkg2;
 
-import com.app.pkg1.Class1;
+import com.app.modifier.pkg1.Class1;
 
 public class Class2 extends Class1{
 	
