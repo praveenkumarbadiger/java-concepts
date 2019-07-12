@@ -17,7 +17,7 @@ public class ObjectLokingUsingSyncBlocksThread {
 	}
 }
 class Display1{
-	public  void viewDisplay(String name,Screen1 screen ) { 
+	public synchronized void viewDisplay(String name,Screen1 screen ) { 
 		synchronized(screen) {
 			for (int i = 0; i < 3 ; i++) {
 				try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
@@ -26,7 +26,7 @@ class Display1{
 		}
 
 	}
-	public  void show(String name ) {  // add synchronized   -->and check output
+	public synchronized  void show(String name ) {  // add synchronized   -->and check output
 		System.out.println(" In Show method "+ name);
 	}
 }

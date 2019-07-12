@@ -8,11 +8,11 @@ public class JoinThread {
 		RamSeethaThread seethaThread=new RamSeethaThread();
 		seethaThread.start();
 		// Rama(main method thread) will wait until seetha to join by completing her job.
-		System.out.println("Rama waiting seetha to join.");
+		System.out.println("Rama(Thread) is waiting.., seetha to join.");
 		seethaThread.join();
 		System.out.println("Seetha joined Rama started to work");
 		for (int i = 0; i < 10; i++) {
-			System.out.println("Rama Thread");
+			System.out.println("Rama and seetha(Threads) are working together...");
 			try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 		}
 	}
@@ -22,7 +22,7 @@ class RamSeethaThread extends Thread{
 	
 	public void run() {
 		for (int i = 0; i < 10; i++) {
-			System.out.println("Seetha Thread doing her work.");
+			System.out.println("Seetha(Thread) doing her work.");
 			try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 		}
 	}

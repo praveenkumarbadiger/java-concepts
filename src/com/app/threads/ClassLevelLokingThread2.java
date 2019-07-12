@@ -8,7 +8,7 @@ public class ClassLevelLokingThread2 {
 				Counter.incrementingInteger();
 			}
 		}).start();
-		try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+		//try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -22,7 +22,7 @@ class Counter {
 	static int intgerIncrement;
 	static char characterIncrement='a';
 
-	static synchronized void incrementingInteger() {
+	static synchronized void incrementingInteger() {  // remove synchronized key alternatively and test it.
 		for (int i = 0; i < 3; i++) {
 			try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
 			System.out.println(Thread.currentThread().getName() + " Thread incrementing number " + intgerIncrement);
@@ -30,7 +30,7 @@ class Counter {
 		}
 	}
 
-	static synchronized void incrementingCharacter() {
+	static synchronized void incrementingCharacter() {  // remove synchronized key alternatively and test it.
 		for (int i = 0; i < 3; i++) {
 			try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
 			System.out.println(Thread.currentThread().getName() + " Thread incrementing character " + (char) characterIncrement);

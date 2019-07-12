@@ -5,7 +5,7 @@ public class InterruptThread {
 	public static void main(String[] args) {
 		ChildThread1 child=new ChildThread1();
 		child.start();
-		//child.interrupt();
+		//child.interrupt();     // Uncomment this line to see interrupt() method effect
 		System.out.println("End of  Main thread");
 	}
 }

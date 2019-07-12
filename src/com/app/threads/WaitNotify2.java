@@ -93,11 +93,13 @@ class ValueProducerConsumer {
 
 	public void consume() throws InterruptedException {
 		synchronized (this) {
-			System.out.println(Thread.currentThread().getName()+ " is accessing X value is : " + x);
 			if (x == 0) {
+				System.out.println(Thread.currentThread().getName()+ " is accessing X="+ x + " wants updated value of x, hence it goes to waiting state");
 				wait();
+				System.out.println(Thread.currentThread().getName()+ " is notified, it was required updated value of x=" + x);
+			}else {
+				System.out.println("This thread name "+Thread.currentThread().getName()+ " is not entered is not entered into waiting, why because x=" + x+" is already updated");
 			}
-			System.out.println(Thread.currentThread().getName()+ " is updated X value is : " + x);
 		}
 	}
 }

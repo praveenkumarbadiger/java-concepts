@@ -15,7 +15,7 @@ public class ExceptionHandlingThread {
 	}
 }
 class ExceptionThread extends Thread{
-	public void run() {
+	public void run()  {
 		System.out.println(10/0);
 	}
 }

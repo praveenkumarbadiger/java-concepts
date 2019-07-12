@@ -32,7 +32,8 @@ public class WaitNotify {
 		t1.start();
 		t2.start();
 
-		// t1 finishes before t2
+		// t1 finishes before t2 : 
+		//if we remove also there is no impact following lines
 		t1.join();
 		t2.join();
 	}
