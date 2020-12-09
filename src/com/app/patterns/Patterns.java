@@ -16,7 +16,9 @@ public class Patterns {
 			}
 			System.out.println();
 		}*/
-		int n=5;
+		
+		
+		/*int n=5;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n ; j++) {
 				if(i==j || j+i==n-1) {
@@ -26,7 +28,7 @@ public class Patterns {
 				}
 			}
 			System.out.println();
-		}
+		}*/
 	}
 
 }

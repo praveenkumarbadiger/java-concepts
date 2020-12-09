@@ -5,8 +5,10 @@ public class StringsExamples {
 	
 		//countNoOfAccurChar();
 		//sortCharsWithoutCompare();
-		sortElementsBasedOnOccuranceAndSorting();
-		
+		//sortElementsBasedOnOccuranceAndSorting();
+		System.out.println(reverseStringCharacter("Praveenkumar"));
+		reverseString("Praveenkumar");
+		//sortCharactersInString("Praveenkumar");
 	}
 
 	
@@ -75,4 +77,37 @@ public class StringsExamples {
 			}
 		}
 	}
+	
+	public static String reverseStringCharacter(String s) {
+		byte[] strBytes = s.getBytes();
+		byte[] result = new byte[strBytes.length];
+		for (int i = 0; i < strBytes.length; i++) {
+			result[i] = strBytes[strBytes.length-1-i];
+		}
+		return new String(result);
+	}
+	
+	public static void reverseString(String s) {
+		String[] token = s.split(""); 
+		for (int i = token.length-1; i >= 0; i--) {
+			System.out.print(token[i]);
+		}
+	}
+	
+	public static void sortCharactersInString(String s) {
+		s= s.toLowerCase();
+		char[] charArr = s.toCharArray();
+		int[] rs = new int[128];
+		for (int i = 0; i < charArr.length; i++) {
+			rs[charArr[i]]++;
+		}
+		
+		for (int i = 0; i < rs.length; i++) {
+			while(rs[i] > 0) {
+				System.out.println((char)i);
+				rs[i]--;
+			}
+		}
+	}
+	
 }

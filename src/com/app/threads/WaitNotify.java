@@ -6,14 +6,11 @@ public class WaitNotify {
 
 	public static void main(String[] args) throws InterruptedException {
 		final PC pc = new PC();
-		Thread t1 = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					pc.produce();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+		Thread t1 = new Thread(()-> {
+			try {
+				pc.produce();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
 		});
 
@@ -33,9 +30,9 @@ public class WaitNotify {
 		t2.start();
 
 		// t1 finishes before t2 : 
-		//if we remove also there is no impact following lines
-		t1.join();
-		t2.join();
+		//if we remove also there is no impact of following lines
+//		t1.join();
+//		t2.join();
 	}
 
 	public static class PC {
@@ -60,3 +57,4 @@ public class WaitNotify {
 		}
 	}
 }
+

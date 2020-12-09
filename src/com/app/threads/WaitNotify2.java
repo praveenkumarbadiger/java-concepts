@@ -4,16 +4,11 @@ public class WaitNotify2 {
 
 	public static void main(String[] args) throws InterruptedException {
 		ValueProducerConsumer valueProducerConsumer=new  ValueProducerConsumer();
-		Thread t1 = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					valueProducerConsumer.consume();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
+		
+		Thread t1 = new Thread(()-> {
+			try { valueProducerConsumer.consume(); } catch (InterruptedException e) { e.printStackTrace(); }
 		});
+		
 		Thread t2 = new Thread(new Runnable() {
 			@Override
 			public void run() {

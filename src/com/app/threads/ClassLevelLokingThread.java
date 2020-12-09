@@ -11,18 +11,28 @@ public class ClassLevelLokingThread {
 
 class GreekThread extends Thread {
 	public void run() {
-			Student.getCollege();
-		/*synchronized (GreekThread.class) {
+//		Student.getCollege();
+		synchronized (GreekThread.class) {
 			printCurrentThread();
-		}*/
+		}
+//		synchronized (GreekThread.class) {
+			methodDoesNotHaveClassLock();
+//		}
 	}
 	
-	/*public static void printCurrentThread() {
+	public static void printCurrentThread() {
 		for (int i = 0; i < 3; i++) {
 			try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
 			System.out.println(Thread.currentThread().getName());
 		}
-	}*/
+	}
+	
+	public static void methodDoesNotHaveClassLock() {
+		for (int i = 0; i < 3; i++) {
+			try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
+			System.out.println(Thread.currentThread().getName() +" Thread executing without Class Level Lock!!!!");
+		}
+	}
 	
 }
 
@@ -39,7 +49,10 @@ class Student{
 			}			
 		}
 		System.out.println(Thread.currentThread().getName() + " thread is got college.");
-	}*/
+	}*/  
+	
+	// Above in thread you are calling this method [Student.getCollege();] by obtaining Class Lock,
+	//Note : U remove synchronized, then test, u'll get improper result 
 	static synchronized void getCollege() {
 		System.out.println(Thread.currentThread().getName() + " thread is getting college.");
 			for (int i = 0; i < 3; i++) {

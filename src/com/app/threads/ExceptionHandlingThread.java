@@ -16,6 +16,10 @@ public class ExceptionHandlingThread {
 }
 class ExceptionThread extends Thread{
 	public void run()  {
-		System.out.println(10/0);
+		synchronized (this) {
+			try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+			System.out.println(Thread.currentThread().getName() + " Thread is executing and facing exception.");
+			System.out.println(10/0);
+		}
 	}
 }

@@ -3,9 +3,10 @@ package com.app.concurrency;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ConcurrentModificationThread extends Thread {
-	static List list = new ArrayList(); // chage to CopyOnWriteArrayList<>(); , then we wont get ConcurrentModificationExecption 
+	static List list = new CopyOnWriteArrayList(); // chage to CopyOnWriteArrayList<>(); , then we wont get ConcurrentModificationExecption 
 	public void run() {
 		try {Thread.sleep(2000);} 
 		catch (InterruptedException e) {e.printStackTrace();}

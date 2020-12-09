@@ -2,12 +2,12 @@ package com.app.threads;
 
 public class ClassLevelLokingThread2 {
 	public static void main(String[] args) {
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				Counter.incrementingInteger();
-			}
+		
+		new Thread(()-> {
+			Counter.incrementingInteger();
 		}).start();
+		
+		
 		//try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
 		new Thread(new Runnable() {
 			@Override

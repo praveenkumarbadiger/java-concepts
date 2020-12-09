@@ -1,12 +1,12 @@
 package com.app.threads;
 
 // main thread object is assigned through static variable of child thread class
-public class JoinThread2 {
+/*public class JoinThread2 {
 	public static void main(String[] args) throws InterruptedException {
 		ChildThread.main=Thread.currentThread();
 		ChildThread child=new ChildThread();
 		child.start();
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 5; i++) {
 			System.out.println("Main thread");
 			try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 		}
@@ -20,9 +20,9 @@ class ChildThread extends Thread {
 			System.out.println("child thread");
 		}
 	}
-}
+}*/
 //---> main thread object is assigned through constructor of child thread class <------
-/*public class JoinThread2 {
+public class JoinThread2 {
 	public static void main(String[] args) throws InterruptedException {
 		
 		ChildThread child=new ChildThread(Thread.currentThread());
@@ -44,4 +44,4 @@ class ChildThread extends Thread {
 			System.out.println("child thread");
 		}
 	}
-}*/		
+}

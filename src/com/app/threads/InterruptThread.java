@@ -5,16 +5,20 @@ public class InterruptThread {
 	public static void main(String[] args) {
 		ChildThread1 child=new ChildThread1();
 		child.start();
-		//child.interrupt();     // Uncomment this line to see interrupt() method effect
-		System.out.println("End of  Main thread");
+		child.interrupt();     // Uncomment this line to see interrupt() method effect
+		System.out.println("End of  Main thread and name : "+Thread.currentThread().getName() );
 	}
 }
 
 class ChildThread1 extends Thread{
 	public void run() {
 		for (int i = 0; i < 10; i++) {
-			System.out.println("child thread executing....");
-			try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+			System.out.println(Thread.currentThread().getName() +" child thread executing....");
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				System.out.println("Interrupted by other thread.."+e.getMessage());
+			}
 		}
 	}
 }
