@@ -12,7 +12,7 @@ import java.util.Optional;
 public class ObjectSerializer {
 	private ObjectSerializer() { }
 
-	public static Optional<String> convertToString(final Serializable object) {
+	public static Optional<String> convertObjectToString(final Serializable object) {
 		try (final ByteArrayOutputStream baos = new ByteArrayOutputStream();
 				ObjectOutputStream oos = new ObjectOutputStream(baos)) {
 			oos.writeObject(object);
@@ -24,7 +24,7 @@ public class ObjectSerializer {
 		}
 	}
 
-	public static <T extends Serializable> Optional<T> convertFrom(final String objectAsString) {
+	public static <T extends Serializable> Optional<T> convertStringToObject(final String objectAsString) {
 		final byte[] data = Base64.getDecoder().decode(objectAsString);
 		try (final ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(data))) {
 			return Optional.of((T) ois.readObject());
