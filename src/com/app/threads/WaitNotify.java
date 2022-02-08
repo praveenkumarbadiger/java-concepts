@@ -38,9 +38,9 @@ public class WaitNotify {
 	public static class PC {
 		public void produce() throws InterruptedException {
 			synchronized (this) {
-				System.out.println("producer thread running");
+				System.out.println("producer thread("+Thread.currentThread().getName()+") running");
 				wait();
-				System.out.println("Resumed");
+				System.out.println("Producer thread("+Thread.currentThread().getName()+") got data");
 			}
 		}
 
@@ -48,9 +48,9 @@ public class WaitNotify {
 			Thread.sleep(1000);
 			Scanner s = new Scanner(System.in);
 			synchronized (this) {
-				System.out.println("Waiting for return key.");
+				System.out.println("Consumer thread("+Thread.currentThread().getName()+") running. Hello user prvide data and enter.");
 				s.nextLine();
-				System.out.println("Return key pressed");
+				System.out.println("Thank user for the data");
 				notify();
 				Thread.sleep(2000);
 			}

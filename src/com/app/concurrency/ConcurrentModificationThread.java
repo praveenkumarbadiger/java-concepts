@@ -7,6 +7,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ConcurrentModificationThread extends Thread {
 	static List list = new CopyOnWriteArrayList(); // chage to CopyOnWriteArrayList<>(); , then we wont get ConcurrentModificationExecption 
+	//static List list = new ArrayList();
 	public void run() {
 		try {Thread.sleep(2000);} 
 		catch (InterruptedException e) {e.printStackTrace();}

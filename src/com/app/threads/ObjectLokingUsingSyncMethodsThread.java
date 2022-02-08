@@ -17,7 +17,7 @@ public class ObjectLokingUsingSyncMethodsThread {
 	}
 }
 class Display{
-	public synchronized void viewDisplay(String name,Screen screen ) { // change signature to --> public static synchronized void view(String name ) {  -->and check
+	public static synchronized void viewDisplay(String name,Screen screen ) { // change signature to --> public static synchronized void view(String name ) {  -->and check
 		for (int i = 0; i < 3 ; i++) {
 			try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 			System.out.println(screen.getScreenInfo()+" belongs to "+name);

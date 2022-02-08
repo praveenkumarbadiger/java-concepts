@@ -11,9 +11,11 @@ public class WaitNotify3 {
 		Thread tProducer = new Thread(new Producer(taskQueue, MAX_CAPACITY), "Producer");
 		Thread tConsumer = new Thread(new Consumer(taskQueue), "Consumer");
 
+		tConsumer.start();
+		
+		Thread.sleep(2000);
 		// Start both threads
 		tProducer.start();
-		tConsumer.start();
 
 		// t1 finishes before t2
 		
@@ -44,11 +46,11 @@ class Producer implements Runnable {
 				System.out.println("Queue is full " + Thread.currentThread().getName() + " is waiting , size: "+ taskQueue.size());
 				taskQueue.wait();
 			}
-			Thread.sleep(1000);
 			while (MAX_CAPACITY > 0) {
 				taskQueue.add(MAX_CAPACITY);
 				MAX_CAPACITY--;
-				System.out.println(Thread.currentThread().getName() + " Producing: " + MAX_CAPACITY);	
+				Thread.sleep(500);
+				System.out.println(Thread.currentThread().getName() + " Producing: " + MAX_CAPACITY);
 			}
 			taskQueue.notifyAll();
 		}
@@ -77,9 +79,10 @@ class Consumer implements Runnable {
 				System.out.println("Queue is empty " + Thread.currentThread().getName() + " is waiting , size: "+ taskQueue.size());
 				taskQueue.wait();
 			}
-			Thread.sleep(1000);
+			
 			for(Integer i :taskQueue) {
-				System.out.println(Thread.currentThread().getName() +  "Consuming: " + i);				
+				Thread.sleep(500);
+				System.out.println(Thread.currentThread().getName() +  "Consuming: " + i);
 			}
 			taskQueue.notifyAll();
 		}

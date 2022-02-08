@@ -15,9 +15,9 @@ class GreekThread extends Thread {
 		synchronized (GreekThread.class) {
 			printCurrentThread();
 		}
-//		synchronized (GreekThread.class) {
+		//synchronized (GreekThread.class) {
 			methodDoesNotHaveClassLock();
-//		}
+		//}
 	}
 	
 	public static void printCurrentThread() {

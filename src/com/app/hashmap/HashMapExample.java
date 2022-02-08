@@ -1,14 +1,14 @@
 package com.app.hashmap;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HashMapExample {
 	public static void main(String[] args) {
-		Set<Integer> map=new HashSet<Integer>(10,1.0f);
+		HashMap<Integer,Integer> map=new HashMap<Integer,Integer>(10,1.0f);
 		
 		for(int i = 0; i< 20 ; i++ ) {
-			map.add(i);
+			map.put(i,i);
 		}
 		System.out.println(map);
 	}
